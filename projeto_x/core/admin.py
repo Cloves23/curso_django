@@ -6,11 +6,11 @@ from projeto_x.core.models import LegalPerson, NaturalPerson
 @admin.register(LegalPerson)
 class LegalPersonAdmin(admin.ModelAdmin):
     fields = [
-        ('created_at', 'modified_at'),
+        ('created_at', 'updated_at'),
         ('name', 'nickname'),
         'document',
         ('phone', 'email'),
         ('state_registration', 'municipal_registration')
     ]
-    readonly_fields = ('created_at', 'modified_at')
+    readonly_fields = ('created_at', 'updated_at')
     list_display = ['document', 'name', 'phone']

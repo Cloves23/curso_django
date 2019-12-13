@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('modified_at', models.DateTimeField(auto_now=True)),
+                ('updated_at', models.DateTimeField(auto_now=True)),
                 ('name', models.CharField(max_length=50)),
                 ('nickname', models.CharField(max_length=30)),
                 ('document', models.CharField(max_length=16)),
