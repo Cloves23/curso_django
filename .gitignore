@@ -2,5 +2,6 @@
 .idea
 .settings
 .vscode
+*.mo
 
 __pycache__/
