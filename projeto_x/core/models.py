@@ -17,6 +17,14 @@ class Person(BaseModel):
     phone = models.CharField(_('phone'), max_length=16)
     email = models.EmailField(_('email'))
 
+    @property  # "Converte" um método em um atributo
+    def is_legalperson(self):
+        return hasattr(self, 'legalperson')
+
+    @property
+    def is_naturalperson(self):
+        return hasattr(self, 'naturalperson')
+
 
 class LegalPerson(Person):
     person = models.OneToOneField('core.Person',
@@ -54,7 +62,12 @@ class Address(BaseModel):
     city = models.CharField(_('city'), max_length=30)
     number = models.CharField(_('number'), max_length=5)
     complement = models.CharField(_('complement'), max_length=30)
+    tags = models.ManyToManyField('Tag',
+                                  related_name='addresses',
+                                  related_query_name='address',
+                                  blank=True,
+                                  verbose_name=_('tags'))
 
 
-# class Tag(models.Model):
-#     name = models
+class Tag(BaseModel):
+    name = models.CharField(_('name'), max_length=30, unique=True)
