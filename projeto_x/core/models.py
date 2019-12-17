@@ -33,7 +33,7 @@ class LegalPerson(Person):
 class NaturalPerson(Person):
     GENDER = [('M', _('Male')), ('F', _('Female')), ('O', _('Other'))]
 
-    person = models.OneToOneField('core.Person',
+    person = models.OneToOneField(Person,
                                   on_delete=models.CASCADE,
                                   parent_link=True,
                                   verbose_name=_('person'))
@@ -41,3 +41,20 @@ class NaturalPerson(Person):
     gender = models.CharField(_('gender'), max_length=1, choices=GENDER)
     nationality = models.CharField(_('nationality'), max_length=40)
     naturalness = models.CharField(_('naturalness'), max_length=30)
+
+
+class Address(BaseModel):
+    person = models.ForeignKey(Person,
+                               on_delete=models.CASCADE,
+                               related_name='addresses',
+                               related_query_name='address',
+                               verbose_name=_('person'))
+    street = models.CharField(_('street'), max_length=30)
+    neighbourhood = models.CharField(_('neighbourhood'), max_length=30)
+    city = models.CharField(_('city'), max_length=30)
+    number = models.CharField(_('number'), max_length=5)
+    complement = models.CharField(_('complement'), max_length=30)
+
+
+# class Tag(models.Model):
+#     name = models
