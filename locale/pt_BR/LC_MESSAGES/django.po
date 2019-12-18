@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-13 18:15-0300\n"
+"POT-Creation-Date: 2019-12-17 22:50-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,4 +20,93 @@ msgstr ""
 
 #: projeto_x/core/models.py:6
 msgid "created at"
-msgstr ""
+msgstr "criado em"
+
+#: projeto_x/core/models.py:7
+msgid "updated at"
+msgstr "atualizado em"
+
+#: projeto_x/core/models.py:14 projeto_x/core/models.py:73
+msgid "name"
+msgstr "nome"
+
+#: projeto_x/core/models.py:15
+msgid "nickname"
+msgstr "apelido"
+
+#: projeto_x/core/models.py:16
+msgid "document"
+msgstr "documento"
+
+#: projeto_x/core/models.py:17
+msgid "phone"
+msgstr "telefone"
+
+#: projeto_x/core/models.py:18
+msgid "email"
+msgstr "e-mail"
+
+#: projeto_x/core/models.py:33 projeto_x/core/models.py:47
+#: projeto_x/core/models.py:59
+msgid "person"
+msgstr "pessoa"
+
+#: projeto_x/core/models.py:34
+msgid "state registration"
+msgstr "registro estadual"
+
+#: projeto_x/core/models.py:35
+msgid "municipal registration"
+msgstr "registro municipal"
+
+#: projeto_x/core/models.py:42
+msgid "Male"
+msgstr "Masculino"
+
+#: projeto_x/core/models.py:42
+msgid "Female"
+msgstr "Feminino"
+
+#: projeto_x/core/models.py:42
+msgid "Other"
+msgstr "Outro"
+
+#: projeto_x/core/models.py:48
+msgid "birthday"
+msgstr "nascimento"
+
+#: projeto_x/core/models.py:49
+msgid "gender"
+msgstr "gênero"
+
+#: projeto_x/core/models.py:50
+msgid "nationality"
+msgstr "nacionalidade"
+
+#: projeto_x/core/models.py:51
+msgid "naturalness"
+msgstr "naturalidade"
+
+#: projeto_x/core/models.py:60
+msgid "street"
+msgstr "rua"
+
+#: projeto_x/core/models.py:61
+msgid "neighbourhood"
+msgstr "bairro"
+
+#: projeto_x/core/models.py:62
+msgid "city"
+msgstr "cidade"
+
+#: projeto_x/core/models.py:63
+msgid "number"
+msgstr "número"
+
+#: projeto_x/core/models.py:64
+msgid "complement"
+msgstr "complemento"
+
+#: projeto_x/core/models.py:69
+msgid "tags"
+msgstr "tags"
