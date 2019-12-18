@@ -1,6 +1,7 @@
 .env
-.idea
-.settings
-.vscode
+*.mo
 
 __pycache__/
+.idea/
+.settings/
+.vscode/
