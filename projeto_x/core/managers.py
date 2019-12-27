@@ -2,7 +2,6 @@ from django.db.models import Manager, QuerySet, Q, F
 from django.db.models.manager import BaseManager
 
 
-
 class NaturalPersonManager(Manager):
     def tags(self, *args, tag_name=None, **kwargs):
         model_tag = self.model._meta.get_field('address').related_model._meta.get_field('tags').related_model
