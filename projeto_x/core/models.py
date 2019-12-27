@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from projeto_x.core.managers import NaturalPersonManager, LegalPersonManager
+
 
 class BaseModel(models.Model):
     created_at = models.DateTimeField(_('created at'), auto_now_add=True)
@@ -25,6 +27,9 @@ class Person(BaseModel):
     def is_naturalperson(self):
         return hasattr(self, 'naturalperson')
 
+    def __str__(self):
+        return f'{self.document} - {self.name}'
+
 
 class LegalPerson(Person):
     person = models.OneToOneField('core.Person',
@@ -34,8 +39,7 @@ class LegalPerson(Person):
     state_registration = models.CharField(_('state registration'), max_length=18)
     municipal_registration = models.CharField(_('municipal registration'), max_length=18)
 
-    def __str__(self):
-        return f'{self.document} - {self.name}'
+    objects = LegalPersonManager()
 
 
 class NaturalPerson(Person):
@@ -49,6 +53,8 @@ class NaturalPerson(Person):
     gender = models.CharField(_('gender'), max_length=1, choices=GENDER)
     nationality = models.CharField(_('nationality'), max_length=40)
     naturalness = models.CharField(_('naturalness'), max_length=30)
+
+    objects = NaturalPersonManager()
 
 
 class Address(BaseModel):
@@ -68,6 +74,12 @@ class Address(BaseModel):
                                   blank=True,
                                   verbose_name=_('tags'))
 
+    def __str__(self):
+        return f'{self.pk}: {self.street}'
+
 
 class Tag(BaseModel):
     name = models.CharField(_('name'), max_length=30, unique=True)
+
+    def __str__(self):
+        return f'{self.name}'
