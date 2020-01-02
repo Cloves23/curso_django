@@ -1,0 +1,26 @@
+{% load i18n %}
+
+{% for person in people %}
+    <dl>
+        <dt>{% trans "Name" %}:</dt>
+        <dd>{{ person.name }}</dd>
+
+        <dt>{% trans "Document" context "naturalperson" %}:</dt>
+        <dd>{{ person.document }}</dd>
+
+        <dt>{% trans "Birthday" %}:</dt>
+        <dd>{{ person.birthday }}</dd>
+
+        <dt>Gender:</dt>
+        <dd>{{ person.get_gender_display }} ({{ person.gender }})</dd>
+    </dl>
+{% empty %} {# Aqui é um comentário de uma linha #}
+    {% trans "Not found" %}
+    {% blocktrans %}
+        <p>This os a translation of multiple lines.</p>
+        <p>You can write something. Whatever you want.</p>
+    {% endblocktrans %}
+{% endfor %}
+{% comment %}
+Comentário de multiplas linhas
+{% endcomment %}

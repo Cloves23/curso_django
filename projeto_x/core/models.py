@@ -12,7 +12,17 @@ class BaseModel(models.Model):
         abstract = True
 
 
-class Person(BaseModel):
+class BaseUserModel(models.Model):
+    created_by = models.ForeignKey('auth.User',
+                                   on_delete=models.PROTECT,
+                                   null=True,
+                                   related_name='created_%(class)s')
+
+    class Meta:
+        abstract = True
+
+
+class Person(BaseModel, BaseUserModel):
     name = models.CharField(_('name'), max_length=50)
     nickname = models.CharField(_('nickname'), max_length=30)
     document = models.CharField(_('document'), max_length=16)
@@ -57,7 +67,7 @@ class NaturalPerson(Person):
     objects = NaturalPersonManager()
 
 
-class Address(BaseModel):
+class Address(BaseModel, BaseUserModel):
     person = models.ForeignKey(Person,
                                on_delete=models.CASCADE,
                                related_name='addresses',
