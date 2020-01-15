@@ -3,5 +3,5 @@
 .settings
 .vscode
 *.mo
-
+env
 __pycache__/
