@@ -82,7 +82,7 @@ class ShoppingList(BaseUserModel):
                                 verbose_name=_('shop'))
     currency_used = models.CharField(_('currency used'), max_length=15)
     dolar_value = models.DecimalField(_('dolar value'), decimal_places=3, max_digits=4)
-    status = models.CharField(_('status'), max_length=15)  # QUAL A UTILIDADE
+    status = models.CharField(_('status'), max_length=15)
     products = models.ManyToManyField('Product',
                                       related_name='shoppingLists',
                                       related_query_name='shoppingList',
