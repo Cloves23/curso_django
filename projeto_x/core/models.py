@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 
 from projeto_x.core.managers import ProductManager, ProductInfoManager
@@ -13,6 +14,7 @@ class BaseModel(models.Model):
 
 
 class Person(BaseModel):
+    user = models.ForeignKey(User)
     name = models.CharField(_('name'), max_length=50)
     nickname = models.CharField(_('nickname'), max_length=30)
     document = models.CharField(_('document'), max_length=16)
